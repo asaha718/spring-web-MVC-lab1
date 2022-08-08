@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.ActivityDTO;
 import com.example.demo.model.Activity;
 import com.example.demo.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,13 @@ public class ActivityController {
     public List<Activity> readActivities(){
         return activityService.getActivities();
     }
+    @GetMapping("/{id}")
+    public ActivityDTO readActivity(Integer id){
+        return activityService.getActivity(id);
+    }
 
     @DeleteMapping("/{id}")
-    public void deleteActivity(int id){
+    public void deleteActivity(Integer id){
         activityService.deleteActivity(id);
     }
 

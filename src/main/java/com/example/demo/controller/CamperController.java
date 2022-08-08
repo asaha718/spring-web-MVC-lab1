@@ -25,7 +25,7 @@ public class CamperController {
     }
 
     @GetMapping("/{id}")
-    public CamperDTO getCamper(int id){
+    public CamperDTO getCamper(@PathVariable Integer id){
         return camperService.getCamper(id);
     }
 }
