@@ -1,7 +1,6 @@
 package com.example.demo.model;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -10,7 +9,9 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="SIGNUPS")
-@Data
+@Getter
+@Setter
+@EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
 @AllArgsConstructor
 public class SignUp {

@@ -49,7 +49,7 @@ public class AccessCampAppApplication {
 					.save(new SignUp(1, 9, LocalDate.now(), LocalDate.now(), caitlin,archery));
 			SignUp swimmingSignup = signupRepository
 					.save(new SignUp(2, 10, LocalDate.now(), LocalDate.now(), caitlin,swimming));
-			archery.setSignup(List.of(archerySignup, swimmingSignup));
+			archery.setSignUps(List.of(archerySignup, swimmingSignup));
 			caitlin.setSignUps(List.of(archerySignup, swimmingSignup));
 		};
 	}

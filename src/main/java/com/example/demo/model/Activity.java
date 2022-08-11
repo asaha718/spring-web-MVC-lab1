@@ -1,8 +1,7 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,7 +10,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "ACTIVITIES")
-@Data
+@Getter
+@Setter
+@EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
 @AllArgsConstructor
 public class Activity {
@@ -23,6 +24,6 @@ public class Activity {
     private LocalDate created_at;
     private LocalDate updated_at;
     @OneToMany(mappedBy = "activity")
-    private List<SignUp> signup = new ArrayList<>();
+    private List<SignUp> signUps = new ArrayList<>();
 
 }

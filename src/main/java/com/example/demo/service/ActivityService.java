@@ -19,19 +19,25 @@ public class ActivityService {
     @Autowired
     private ModelMapper mapper;
 
-    public Activity createActivity(Activity activity){
+    public Activity createActivity(Activity activity) {
         return activityRepository.save(activity);
     }
 
-    public List<Activity> getActivities(){
-        return activityRepository.findAll();
+    public List<ActivityDTO> getActivities() {
+        return activityRepository.findAll().stream().map(activity -> mapper.map(activity, ActivityDTO.class)).toList();
     }
 
-    public ActivityDTO getActivity(int id){
+    public ActivityDTO getActivity(int id) {
         Activity activity = activityRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return mapper.map(activity, ActivityDTO.class);
     }
-    public void deleteActivity(Integer id){
+
+    public Activity getActivityById(int id) {
+        Activity activity = activityRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return activity;
+    }
+
+    public void deleteActivity(Integer id) {
 //        activityRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         activityRepository.deleteById(id);
     }

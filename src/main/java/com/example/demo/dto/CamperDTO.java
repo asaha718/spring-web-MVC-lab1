@@ -1,6 +1,5 @@
 package com.example.demo.dto;
 
-import com.example.demo.model.Activity;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -11,6 +10,6 @@ public class CamperDTO {
     private int id;
     private String name;
     private int age;
-    private List<Activity> activityList = new ArrayList<>();
+    private List<ActivityDTO> activityList = new ArrayList<>();
 }
 
